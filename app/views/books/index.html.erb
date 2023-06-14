@@ -1,10 +1,13 @@
 <h1>Books</h1>
 
+<p>brank</p>
 <% @book.each do |book| %>
-  <p>brank</p>
-  <span>
-    <%= link_to book.title, book_path(book.id) %>
-  </span>
+  <span><%= book.title %></span>
+  <span><%= book.body %></span>
+  <span><%= link_to "Show", book_path(book.id) %></span>
+  <span><%= link_to "Edit", edit_book_path(book.id) %></span>
+  <span><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></span>
+  <br>
 <% end %>
 
 
