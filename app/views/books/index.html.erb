@@ -1,6 +1,11 @@
+<dev>
+  <%= flash[:destroy] %>
+</dev>
 <h1>Books</h1>
+<span>Title</span>
+<span>Body</span>
+<br>
 
-<p>brank</p>
 <% @book.each do |book| %>
   <span><%= book.title %></span>
   <span><%= book.body %></span>
