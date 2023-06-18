@@ -3,4 +3,11 @@
   印象を共有し交換することができます
 </p>
 <br>
-<span><%= link_to "start", index_book_url %></span>
+
+<span><%= link_to "start", href="/books_path" %></span>
+
+
+<!--これでも動作しているが、rspecがエラー検知するので修正を-->
+<!--<span>%= link_to "start", index_book_url %></span> -->
+
+<!--<a href="/books/index">start</a>-->
