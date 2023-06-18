@@ -29,9 +29,14 @@ class BooksController < ApplicationController
 
   def update
     book = Book.find(params[:id])
-    book.update(book_params)
-    flash[:update] = "Book was successfully updated."
-    redirect_to book_path(book.id)
+    if book.update(book_params)
+      flash[:update] = "Book was successfully updated."
+      redirect_to book_path(book.id)
+    else
+      flash[:alert] = "2 errors prohibited this book from being saved:"
+      @book = Book.all
+      redirect_to edit_book_path(book.id)
+    end
   end
 
   def destroy
@@ -45,4 +50,5 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
 end
