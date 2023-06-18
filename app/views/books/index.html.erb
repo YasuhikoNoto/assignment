@@ -3,23 +3,45 @@
 </dev>
 <h1>Books</h1>
 
-<div class="table">
+<!--tableタグで作り直し-->
+<!--<div class="table">
   <div class="thread">
     <p class="thread titlename">Title</p>
     <p class="thread bodyname">Body</p>
   </div>
   <div class="tb">
-    <% @book.each do |book| %>
+    % @book.each do |book| %>
       <div class="tc">
-        <p class="element titlename"><%= book.title %></p>
-        <p class="element bodyname"><%= book.body %></p>
-        <p class="element"><%= link_to "Show", book_path(book.id) %></p>
-        <p class="element"><%= link_to "Edit", edit_book_path(book.id) %></p>
-        <p class="element"><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></p>
+        <p class="element titlename">%= book.title %></p>
+        <p class="element bodyname">%= book.body %></p>
+        <p class="element">%= link_to "Show", book_path(book.id) %></p>
+        <p class="element">%= link_to "Edit", edit_book_path(book.id) %></p>
+        <p class="element">%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></p>
       </div>
-    <% end %>
+    % end %>
   </div>
-</div>
+</div>-->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="thread titlename">Title</th>
+      <th class="thread bodyname">Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @book.each do |book| %>
+      <tr>
+        <td class="element titlename"><%= book.title %></td>
+        <td class="element bodyname"><%= book.body %></td>
+        <td class="element"><%= link_to "Show", book_path(book.id) %></td>
+        <td class="element"><%= link_to "Edit", edit_book_path(book.id) %></td>
+        <td class="element"><%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <h2>New book</h2>
 

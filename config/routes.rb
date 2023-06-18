@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'books/new'
-  get 'books/index', as: 'index_book'
   post 'books' => 'books#create'
+#  get 'books/index', as: 'index_book'  railsでは一覧画面はurlの末尾indexを省略するのが共通認識
   get 'books' => 'books#index'
   get 'books/show'
   get 'books/:id' => 'books#show', as: 'book'
